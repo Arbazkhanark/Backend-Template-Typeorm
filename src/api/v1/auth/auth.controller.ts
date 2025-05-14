@@ -7,7 +7,7 @@ export const signup = async (req: Request, res: Response) => {
     const user = await signupService(username, email, password);
     res.status(201).json({ success: true, data: user });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.status(400).json({ success: false, message: error });
   }
 };
 
@@ -17,6 +17,6 @@ export const login = async (req: Request, res: Response) => {
     const token = await loginService(email, password);
     res.status(200).json({ success: true, data: { token } });
   } catch (error) {
-    res.status(401).json({ success: false, message: error.message });
+    res.status(401).json({ success: false, message: error });
   }
 };
